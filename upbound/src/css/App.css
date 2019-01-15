@@ -1,0 +1,11 @@
+.App {
+  background: red;
+  display: flex;
+  flex-direction: column;
+}
+.App .navBar {
+  background: green;
+}
+.App .cards {
+  background: blue;
+}
