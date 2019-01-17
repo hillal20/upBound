@@ -14,8 +14,9 @@ class Navbar extends Component {
         <select
           onChange={event => {
             this.setState({ campaignId: event.target.value });
-            console.log("event target ===> ", event.target.value);
-            console.log("event key  ===> ", event.target);
+            this.props.gettingCID(event.target.value);
+            // console.log("event target ===> ", event.target.value);
+            // console.log("event key  ===> ", event.target);
           }}
         >
           <option>All campaigns</option>
