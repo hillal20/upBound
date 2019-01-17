@@ -14,15 +14,17 @@ class Cards extends Component {
           if (e.campaignId === this.props.campaignId) {
             return (
               <div key={i} className="card">
+                <div>
+                  <img src={e.primaryMediaUrl} width="400px" height="200px" />
+                </div>
                 <div>campaign id:{e.campaignId}</div>
                 <div> current work flow: {e.currentWorkflow}</div>
-                <div>
-                  <img src={e.primaryMediaUrl} width="200px" height="200px" />
-                </div>
+                <div>{e.cardDescription}</div>
               </div>
             );
           }
         })}
+        <div className="card"> add card </div>
       </div>
     );
   }
