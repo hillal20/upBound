@@ -1,15 +1,31 @@
 import React, { Component } from "react";
+import axios from "axios";
 const cards = require("../cards.json");
+
 class Cards extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      cards: []
+    };
   }
+  componentDidMount() {
+    this.getCards();
+  }
+  getCards = () => {
+    const promise = axios.get("http://localhost:4000/cards");
+    promise
+      .then(respond => {
+        console.log("respond", respond.data);
+        this.setState({ cards: respond.data.cards });
+      })
+      .catch();
+  };
   render() {
     //console.log("cards ====> ", cards);
     return (
       <div className="cards">
-        {cards.map((e, i) => {
+        {this.state.cards.map((e, i) => {
           console.log("===> this.props", this.props.campaignId);
           if (e.campaignId === this.props.campaignId) {
             return (
