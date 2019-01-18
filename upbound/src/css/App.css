@@ -4,6 +4,22 @@
 }
 .App .navBar {
   background: darkgrey;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.App .navBar input {
+  background: url("../pictures/search.gif");
+  background-repeat: no-repeat;
+  background-size: 25px 25px;
+  border: 2px solid crimson;
+  width: 200px;
+}
+.App .navBar input:focus {
+  background: none;
+  background: white;
 }
 .App .cards {
   display: flex;

@@ -3,6 +3,24 @@
   flex-direction: column;
   .navBar {
     background: darkgrey;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    input {
+      background: url("../pictures/search.gif");
+      background-repeat: no-repeat;
+      background-size: 25px 25px;
+      //text-indent: 20px;
+      border: 2px solid crimson;
+      width: 200px;
+    }
+
+    input:focus {
+      background: none;
+      background: white;
+    }
   }
   .cards {
     display: flex;

@@ -22,6 +22,17 @@ class Cards extends Component {
                 <div>{e.cardDescription}</div>
               </div>
             );
+          } else if (this.props.campaignId === "all campaigns") {
+            return (
+              <div key={i} className="card">
+                <div>
+                  <img src={e.primaryMediaUrl} width="400px" height="200px" />
+                </div>
+                <div>campaign id:{e.campaignId}</div>
+                <div> current work flow: {e.currentWorkflow}</div>
+                <div>{e.cardDescription}</div>
+              </div>
+            );
           }
         })}
         <div className="card"> add card </div>
