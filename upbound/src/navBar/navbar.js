@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 const campaigns = require("../compaings.json");
 const searchImg = require("../pictures/search.jpg");
 class Navbar extends Component {
@@ -6,13 +7,20 @@ class Navbar extends Component {
     super(props);
     this.state = {
       campaignId: "",
-      date: ""
+      date: "",
+      campaigns: []
     };
   }
   componentDidMount() {
     this.getDate();
+    this.getCampaigns();
   }
-
+  getCampaigns = () => {
+    const promise = axios.get("http://localhost:4000/campaigns");
+    promise.then(respond => {
+      this.setState({ campaigns: respond.data.campaigns });
+    });
+  };
   getDate() {
     var date = { currentTime: new Date().toDateString() };
 
@@ -35,7 +43,7 @@ class Navbar extends Component {
             }}
           >
             <option value="all campaigns">All campaigns</option>
-            {campaigns.map(e => {
+            {this.state.campaigns.map(e => {
               return (
                 <option key={e.id} value={e.id}>
                   {e.campaignName}

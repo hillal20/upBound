@@ -6,7 +6,16 @@ class Cards extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cards: []
+      cards: [],
+      cardsStates: [
+        "saved",
+        "pending",
+        "active",
+        "paused",
+        "expired",
+        "declined",
+        "terminated"
+      ]
     };
   }
   componentDidMount() {
@@ -27,15 +36,42 @@ class Cards extends Component {
       <div className="cards">
         {this.state.cards.map((e, i) => {
           console.log("===> this.props", this.props.campaignId);
-          if (e.campaignId === this.props.campaignId) {
+          if (
+            this.props.campaignId === null ||
+            this.props.campaignId === undefined ||
+            !this.props.campaignId
+          ) {
             return (
               <div key={i} className="card">
                 <div>
                   <img src={e.primaryMediaUrl} width="400px" height="200px" />
                 </div>
-                <div>campaign id:{e.campaignId}</div>
-                <div> current work flow: {e.currentWorkflow}</div>
-                <div>{e.cardDescription}</div>
+                <div className="card-detail">
+                  {/* <div>Campaign id:{e.campaignId}</div> */}
+                  <div> state: {e.currentWorkflow}</div>
+                  {/* <div> Card Description: {e.cardDescription}</div> */}
+                  <div> views: {e.views}</div>
+                  <div> shares: {e.shares}</div>
+                  <div> amount: ${e.listOfPlans[0].price.amount}</div>
+                </div>
+              </div>
+            );
+          }
+
+          if (e.campaignId === this.props.campaignId) {
+            return (
+              <div key={i} className="card">
+                <div>
+                  <img src={e.primaryMediaUrl} width="400px" height="400px" />
+                </div>
+                <div className="card-detail">
+                  {/* <div>Campaign id:{e.campaignId}</div> */}
+                  <div> state: {e.currentWorkflow}</div>
+                  {/* <div> Card Description: {e.cardDescription}</div> */}
+                  <div> views: {e.views}</div>
+                  <div> shares: {e.shares}</div>
+                  <div> amount: ${e.listOfPlans[0].price.amount}</div>
+                </div>
               </div>
             );
           } else if (this.props.campaignId === "all campaigns") {
@@ -44,14 +80,19 @@ class Cards extends Component {
                 <div>
                   <img src={e.primaryMediaUrl} width="400px" height="200px" />
                 </div>
-                <div>campaign id:{e.campaignId}</div>
-                <div> current work flow: {e.currentWorkflow}</div>
-                <div>{e.cardDescription}</div>
+                <div className="card-detail">
+                  {/* <div>Campaign id:{e.campaignId}</div> */}
+                  <div> state: {e.currentWorkflow}</div>
+                  {/* <div> Card Description: {e.cardDescription}</div> */}
+                  <div> views: {e.views}</div>
+                  <div> shares: {e.shares}</div>
+                  <div> amount: ${e.listOfPlans[0].price.amount}</div>
+                </div>
               </div>
             );
           }
         })}
-        <div className="card"> add card </div>
+        <div className="add-card"> add card </div>
       </div>
     );
   }

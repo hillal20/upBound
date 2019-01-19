@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <div className="App container">
         <div className="row">
-          <h1>welcome to react app</h1>
+          <h1>Dashboard</h1>
           <NavBar gettingCID={this.gettingCID} />
           <Cards campaignId={this.state.campaignId} />
         </div>
