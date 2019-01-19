@@ -30,6 +30,9 @@ class Cards extends Component {
       })
       .catch();
   };
+  changingState = e => {
+    alert("hello");
+  };
   render() {
     //console.log("cards ====> ", cards);
     return (
@@ -43,12 +46,16 @@ class Cards extends Component {
           ) {
             return (
               <div key={i} className="card">
+                <div className="model">model</div>
                 <div>
                   <img src={e.primaryMediaUrl} width="400px" height="200px" />
                 </div>
                 <div className="card-detail">
                   {/* <div>Campaign id:{e.campaignId}</div> */}
-                  <div> state: {e.currentWorkflow}</div>
+                  <div onClick={this.changingState}>
+                    {" "}
+                    state: {e.currentWorkflow}
+                  </div>
                   {/* <div> Card Description: {e.cardDescription}</div> */}
                   <div> views: {e.views}</div>
                   <div> shares: {e.shares}</div>
@@ -61,12 +68,16 @@ class Cards extends Component {
           if (e.campaignId === this.props.campaignId) {
             return (
               <div key={i} className="card">
+                <div className="model">model</div>
                 <div>
                   <img src={e.primaryMediaUrl} width="400px" height="400px" />
                 </div>
                 <div className="card-detail">
                   {/* <div>Campaign id:{e.campaignId}</div> */}
-                  <div> state: {e.currentWorkflow}</div>
+                  <div onClick={this.changingState}>
+                    {" "}
+                    state: {e.currentWorkflow}
+                  </div>
                   {/* <div> Card Description: {e.cardDescription}</div> */}
                   <div> views: {e.views}</div>
                   <div> shares: {e.shares}</div>
@@ -77,12 +88,16 @@ class Cards extends Component {
           } else if (this.props.campaignId === "all campaigns") {
             return (
               <div key={i} className="card">
+                <div className="model">model</div>
                 <div>
                   <img src={e.primaryMediaUrl} width="400px" height="200px" />
                 </div>
                 <div className="card-detail">
                   {/* <div>Campaign id:{e.campaignId}</div> */}
-                  <div> state: {e.currentWorkflow}</div>
+                  <div onClick={this.changingState}>
+                    {" "}
+                    state: {e.currentWorkflow}
+                  </div>
                   {/* <div> Card Description: {e.cardDescription}</div> */}
                   <div> views: {e.views}</div>
                   <div> shares: {e.shares}</div>
@@ -97,4 +112,14 @@ class Cards extends Component {
     );
   }
 }
+Cards.cardsState = {
+  saved: { pending: true },
+  pending: { declined: true, active: true },
+  active: { terminated: true, expired: true, paused: true },
+  paused: { active: true },
+  declined: null,
+  terminated: null,
+  expired: null
+};
+
 export default Cards;
