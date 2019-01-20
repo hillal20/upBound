@@ -28,13 +28,24 @@ class Cards extends Component {
         console.log("respond", respond.data);
         this.setState({ cards: respond.data.cards });
       })
-      .catch();
+      .catch(err => {
+        console.log(err);
+      });
   };
-  changingState = e => {
-    alert("hello");
+  changingState = (title, state) => {
+    console.log("id===>", title);
+    const promise = axios.post(`http://localhost:4000/cards/${title}`, {
+      state
+    });
+    promise
+      .then(msg => {
+        console.log(msg);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
   render() {
-    //console.log("cards ====> ", cards);
     return (
       <div className="cards">
         {this.state.cards.map((e, i) => {
@@ -46,21 +57,31 @@ class Cards extends Component {
           ) {
             return (
               <div key={i} className="card">
-                <div className="model">model</div>
                 <div>
                   <img src={e.primaryMediaUrl} width="400px" height="200px" />
                 </div>
                 <div className="card-detail">
-                  {/* <div>Campaign id:{e.campaignId}</div> */}
-                  <div onClick={this.changingState}>
-                    {" "}
-                    state: {e.currentWorkflow}
-                  </div>
+                  {/* <div>C T:{e.cardTitle}</div> */}
+                  state:
+                  <select
+                    onChange={x => {
+                      this.changingState(e.cardTitle, x.target.value);
+                      //console.log("e", e.target.value);
+                    }}
+                  >
+                    <option>{e.currentWorkflow}</option>
+                    {this.state.cardsStates.map(j => {
+                      if (e.currentWorkflow !== j) {
+                        return <option key={j}>{j}</option>;
+                      }
+                    })}
+                  </select>
                   {/* <div> Card Description: {e.cardDescription}</div> */}
                   <div> views: {e.views}</div>
                   <div> shares: {e.shares}</div>
                   <div> amount: ${e.listOfPlans[0].price.amount}</div>
                 </div>
+                {/* <div className="model">model</div> */}
               </div>
             );
           }
@@ -68,41 +89,61 @@ class Cards extends Component {
           if (e.campaignId === this.props.campaignId) {
             return (
               <div key={i} className="card">
-                <div className="model">model</div>
                 <div>
-                  <img src={e.primaryMediaUrl} width="400px" height="400px" />
+                  <img src={e.primaryMediaUrl} width="400px" height="200px" />
                 </div>
                 <div className="card-detail">
-                  {/* <div>Campaign id:{e.campaignId}</div> */}
-                  <div onClick={this.changingState}>
-                    {" "}
-                    state: {e.currentWorkflow}
-                  </div>
+                  {/* <div>C T:{e.cardTitle}</div> */}
+                  state:
+                  <select
+                    onChange={x => {
+                      this.changingState(e.cardTitle, x.target.value);
+                      //console.log("e", e.target.value);
+                    }}
+                  >
+                    <option>{e.currentWorkflow}</option>
+                    {this.state.cardsStates.map(j => {
+                      if (e.currentWorkflow !== j) {
+                        return <option key={j}>{j}</option>;
+                      }
+                    })}
+                  </select>
                   {/* <div> Card Description: {e.cardDescription}</div> */}
                   <div> views: {e.views}</div>
                   <div> shares: {e.shares}</div>
                   <div> amount: ${e.listOfPlans[0].price.amount}</div>
                 </div>
+                {/* <div className="model">model</div> */}
               </div>
             );
           } else if (this.props.campaignId === "all campaigns") {
             return (
               <div key={i} className="card">
-                <div className="model">model</div>
                 <div>
                   <img src={e.primaryMediaUrl} width="400px" height="200px" />
                 </div>
                 <div className="card-detail">
-                  {/* <div>Campaign id:{e.campaignId}</div> */}
-                  <div onClick={this.changingState}>
-                    {" "}
-                    state: {e.currentWorkflow}
-                  </div>
+                  {/* <div>C T:{e.cardTitle}</div> */}
+                  state:
+                  <select
+                    onChange={x => {
+                      this.changingState(e.cardTitle, x.target.value);
+                      //console.log("e", e.target.value);
+                    }}
+                  >
+                    <option>{e.currentWorkflow}</option>
+                    {this.state.cardsStates.map(j => {
+                      if (e.currentWorkflow !== j) {
+                        return <option key={j}>{j}</option>;
+                      }
+                    })}
+                  </select>
                   {/* <div> Card Description: {e.cardDescription}</div> */}
                   <div> views: {e.views}</div>
                   <div> shares: {e.shares}</div>
                   <div> amount: ${e.listOfPlans[0].price.amount}</div>
                 </div>
+                {/* <div className="model">model</div> */}
               </div>
             );
           }
