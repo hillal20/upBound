@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-
+import { Button, Modal } from "react-bootstrap";
 class Cards extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +14,8 @@ class Cards extends Component {
         "expired",
         "declined",
         "terminated"
-      ]
+      ],
+      show: false
     };
   }
   componentDidMount() {
@@ -44,6 +45,10 @@ class Cards extends Component {
         console.log(err);
       });
   };
+
+  /////////////////////
+
+  ////////////////////
   render() {
     return (
       <div className="cards">
@@ -78,6 +83,10 @@ class Cards extends Component {
                   <div> shares: {e.shares}</div>
                   <div> amount: ${e.listOfPlans[0].price.amount}</div>
                 </div>
+                {/* <div className="model">
+                  <h1>model</h1>
+                  <h2>next states are:</h2>
+                </div> */}
               </div>
             );
           }

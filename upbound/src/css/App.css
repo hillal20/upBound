@@ -47,12 +47,13 @@
   overflow: hidden;
 }
 .App .cards .card .model {
-  position: relative;
-  top: 20px;
-  left: 20px;
+  position: fixed;
+  top: 100px;
+  left: 300px;
   background: red;
-  width: 60px;
-  height: 60px;
+  width: 400px;
+  height: 400px;
+  z-index: 1;
 }
 .App .cards .card .card-detail {
   display: flex;
