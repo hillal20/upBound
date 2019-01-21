@@ -2,6 +2,11 @@
   display: flex;
   flex-direction: column;
 }
+@media (max-width: 400px) {
+  .App .row h1 {
+    margin-left: 110px;
+  }
+}
 .App .navBar {
   background: darkgrey;
   height: 40px;
@@ -20,6 +25,13 @@
 .App .navBar input:focus {
   background: none;
   background: white;
+}
+@media (max-width: 400px) {
+  .App .navBar {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+  }
 }
 .App .cards {
   display: flex;

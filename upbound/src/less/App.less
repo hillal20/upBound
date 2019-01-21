@@ -1,6 +1,11 @@
 //type : less-watch-compiler  less css App.less
 
 .App {
+  @media (max-width: 400px) {
+    .row h1 {
+      margin-left: 110px;
+    }
+  }
   display: flex;
   flex-direction: column;
   .navBar {
@@ -22,6 +27,11 @@
     input:focus {
       background: none;
       background: white;
+    }
+    @media (max-width: 400px) {
+      display: flex;
+      flex-direction: column;
+      height: 100px;
     }
   }
   .cards {
