@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-const campaigns = require("../compaings.json");
 const searchImg = require("../pictures/search.jpg");
 class Navbar extends Component {
   constructor(props) {

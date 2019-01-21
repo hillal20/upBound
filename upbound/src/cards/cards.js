@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-const cards = require("../cards.json");
 
 class Cards extends Component {
   constructor(props) {
@@ -61,8 +60,7 @@ class Cards extends Component {
                   <img src={e.primaryMediaUrl} width="400px" height="200px" />
                 </div>
                 <div className="card-detail">
-                  {/* <div>C T:{e.cardTitle}</div> */}
-                  state:
+                  <strong>state:</strong>
                   <select
                     onChange={x => {
                       this.changingState(e.cardTitle, x.target.value);
@@ -76,12 +74,10 @@ class Cards extends Component {
                       }
                     })}
                   </select>
-                  {/* <div> Card Description: {e.cardDescription}</div> */}
                   <div> views: {e.views}</div>
                   <div> shares: {e.shares}</div>
                   <div> amount: ${e.listOfPlans[0].price.amount}</div>
                 </div>
-                {/* <div className="model">model</div> */}
               </div>
             );
           }
@@ -93,8 +89,7 @@ class Cards extends Component {
                   <img src={e.primaryMediaUrl} width="400px" height="200px" />
                 </div>
                 <div className="card-detail">
-                  {/* <div>C T:{e.cardTitle}</div> */}
-                  state:
+                  <strong>state:</strong>
                   <select
                     onChange={x => {
                       this.changingState(e.cardTitle, x.target.value);
@@ -108,12 +103,10 @@ class Cards extends Component {
                       }
                     })}
                   </select>
-                  {/* <div> Card Description: {e.cardDescription}</div> */}
                   <div> views: {e.views}</div>
                   <div> shares: {e.shares}</div>
                   <div> amount: ${e.listOfPlans[0].price.amount}</div>
                 </div>
-                {/* <div className="model">model</div> */}
               </div>
             );
           } else if (this.props.campaignId === "all campaigns") {
@@ -123,8 +116,7 @@ class Cards extends Component {
                   <img src={e.primaryMediaUrl} width="400px" height="200px" />
                 </div>
                 <div className="card-detail">
-                  {/* <div>C T:{e.cardTitle}</div> */}
-                  state:
+                  <strong>state:</strong>
                   <select
                     onChange={x => {
                       this.changingState(e.cardTitle, x.target.value);
@@ -138,12 +130,10 @@ class Cards extends Component {
                       }
                     })}
                   </select>
-                  {/* <div> Card Description: {e.cardDescription}</div> */}
                   <div> views: {e.views}</div>
                   <div> shares: {e.shares}</div>
                   <div> amount: ${e.listOfPlans[0].price.amount}</div>
                 </div>
-                {/* <div className="model">model</div> */}
               </div>
             );
           }
