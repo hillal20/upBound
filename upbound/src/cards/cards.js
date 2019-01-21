@@ -148,9 +148,12 @@ class Cards extends Component {
             );
           }
         })}
-        <div className="add-card">
-          <img src="../pictures/search.jpg" width="200px" height="200px" />
-        </div>
+        <div
+          className="add-card"
+          onClick={() => {
+            alert("add image");
+          }}
+        />
       </div>
     );
   }
